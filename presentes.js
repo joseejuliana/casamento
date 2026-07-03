@@ -41,28 +41,55 @@ const listaPresentes = [
     {id:79,nome:"Ritu Gold",d:true},{id:80,nome:"Cachaça Extra",d:true}
 ];
 
-window.reservar = function(id){
-    const it = listaPresentes.find(p=>p.id===id);
-    if(!it || !it.d) return;
+function carregar() {
+    const g = document.getElementById('gradePresentes');
+
+    if (!g) {
+        console.log("ERRO: gradePresentes não existe no HTML");
+        return;
+    }
+
+    const salvos = JSON.parse(localStorage.getItem('casamento_p') || '[]');
+
+    salvos.forEach(id => {
+        const item = listaPresentes.find(p => p.id === id);
+        if (item) item.d = false;
+    });
+
+    g.innerHTML = '';
+
+    listaPresentes.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'card-presente' + (p.d ? '' : ' indisponivel');
+
+        div.innerHTML = `
+            <h3>${p.nome}</h3>
+            ${p.d
+                ? `<button class="botao-capa" onclick="reservar(${p.id})">Quero este</button>`
+                : `<p class="texto-indisponivel">💛 Já reservado</p>`
+            }
+        `;
+
+        g.appendChild(div);
+    });
+}
+
+window.reservar = function(id) {
+    const it = listaPresentes.find(p => p.id === id);
+    if (!it || !it.d) return;
+
     it.d = false;
-    const s = JSON.parse(localStorage.getItem('casamento_p')||'[]');
-    s.push(id); localStorage.setItem('casamento_p', JSON.stringify(s));
-    alert(`✅ "${it.nome}" reservado!\nMuito obrigado, abençoado! 🤍`);
+
+    const salvos = JSON.parse(localStorage.getItem('casamento_p') || '[]');
+    salvos.push(id);
+    localStorage.setItem('casamento_p', JSON.stringify(salvos));
+
+    alert(`✅ "${it.nome}" reservado! 🤍`);
+
     carregar();
 };
 
-function carregar(){
-    const s = JSON.parse(localStorage.getItem('casamento_p')||'[]');
-    s.forEach(id => { const x=listaPresentes.find(p=>p.id===id); if(x)x.d=false; });
-    const g = document.getElementById('gradePresentes');
-    g.innerHTML='';
-    listaPresentes.forEach(p => {
-        const c = document.createElement('div');
-        c.className = 'card-presente'+(p.d?'':' indisponivel');
-        c.innerHTML = `<h3>${p.nome}</h3>` + (p.d
-            ? `<button class="botao-capa" onclick="reservar(${p.id})">Quero este</button>`
-            : `<p class="texto-indisponivel">💛 Já reservado</p>`);
-        g.appendChild(c);
-    });
-}
-document.addEventListener('DOMContentLoaded', carregar);
+// 🔥 ISSO AQUI GARANTE FUNCIONAMENTO NO GITHUB
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(carregar, 300);
+});
