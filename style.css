@@ -104,15 +104,30 @@ section.visivel { opacity:1; transform:none; }
     margin-bottom:40px;
     animation:entra 1.5s .9s both;
 }
-.botao-capa {
-    padding:18px 50px; border-radius:60px;
-    background:linear-gradient(135deg, var(--dourado), var(--ouro));
-    border:none; color:#071321;
-    font-size:17px; font-weight:700; letter-spacing:1px;
-    cursor:pointer; transition:.4s;
+.botao-capa{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:auto;
+    max-width:100%;
+    min-height:56px;
+    padding:16px 30px;
+    border-radius:60px;
+    background:linear-gradient(135deg,var(--dourado),var(--ouro));
+    border:none;
+    color:#071321;
+    font-size:17px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-decoration:none;
+    text-align:center;
+    white-space:nowrap;
+    cursor:pointer;
+    transition:.4s;
     box-shadow:0 15px 40px rgba(212,175,55,.4);
     font-family:var(--fonteC);
-    position:relative; z-index:20;
+    position:relative;
+    z-index:20;
     animation:entra 1.5s 1s both;
 }
 .botao-capa:hover { transform:translateY(-6px) scale(1.03); box-shadow:0 22px 55px rgba(212,175,55,.55); }
@@ -420,4 +435,16 @@ textarea { resize:none; }
     .rodape-logo h2 { font-size:38px; }
     .rodape-infos { gap:30px; }
     .container { padding:60px 0; }
+}
+@media (max-width:480px){
+
+    .botao-capa{
+        width:90%;
+        max-width:320px;
+        margin:0 auto;
+        padding:16px 20px;
+        font-size:16px;
+        white-space:normal;
+    }
+
 }
