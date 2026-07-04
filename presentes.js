@@ -1,7 +1,4 @@
-alert("presentes.js carregou");
-// ================================
-// LISTA DE PRESENTES
-// ================================
+console.log("presentes carregou");
 
 const listaPresentes = [
     "Ventilador",
@@ -48,23 +45,40 @@ const listaPresentes = [
     "Escada alumínio",
     "Apanhador fraldas",
     "Peneira barro",
-    "Lavadora alta pressão"
+    "Lavadora alta pressão",
+    "Copos cerveja",
+    "Copos whisky",
+    "Copos shot",
+    "Copos balão",
+    "Cesto roupa",
+    "Utensílios silicone",
+    "Carrinho geladeira",
+    "Passadeira + tapete",
+    "Forno elétrico",
+    "Panela grill",
+    "Air Fryer",
+    "Micro-ondas",
+    "Espelho grande",
+    "Lixeiras brancas",
+    "Aquecedor",
+    "Panela pressão",
+    "Purificador água",
+    "Lixeira inox",
+    "Secador",
+    "Organizador giratório"
 ];
 
-// ================================
-// CARREGAR PRESENTES
-// ================================
+let indexAtual = 0;
+const porPagina = 10;
 
 function carregarPresentes() {
-
     const container = document.getElementById("gradePresentes");
-
     if (!container) return;
 
-    container.innerHTML = "";
+    const fim = indexAtual + porPagina;
+    const itens = listaPresentes.slice(indexAtual, fim);
 
-    listaPresentes.forEach((item) => {
-
+    itens.forEach((item) => {
         const card = document.createElement("div");
         card.className = "card-presente";
 
@@ -76,33 +90,25 @@ function carregarPresentes() {
         `;
 
         container.appendChild(card);
-
     });
 
+    indexAtual = fim;
+
+    const btn = document.getElementById("btnCarregarMais");
+    if (indexAtual >= listaPresentes.length && btn) {
+        btn.style.display = "none";
+    }
 }
 
-// ================================
-// RESERVAR PRESENTE
-// ================================
-
 function reservarPresente(nome) {
-
     const telefone = "5511949626996";
-
     const mensagem = encodeURIComponent(
         `Olá! Gostaria de reservar o presente: ${nome} 💛`
     );
 
     window.open(`https://wa.me/${telefone}?text=${mensagem}`, "_blank");
-
 }
 
-// ================================
-// INICIAR
-// ================================
-
-if (document.readyState !== "loading") {
+document.addEventListener("DOMContentLoaded", () => {
     carregarPresentes();
-} else {
-    document.addEventListener("DOMContentLoaded", carregarPresentes);
-}
+});
