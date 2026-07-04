@@ -43,7 +43,17 @@ const listaPresentes = [
     "Aspirador vassoura",
     "Mop giratório",
     "Ferro de passar",
-    "Tábua passar"
+    "Tábua passar",
+    "Varal chão",
+    "Escada alumínio",
+    "Apanhador fraldas",
+    "Peneira barro",
+    "Lavadora alta pressão",
+    "Copos cerveja",
+    "Copos whisky",
+    "Copos shot",
+    "Copos balão",
+    "Cesto roupa"
 ];
 
 // ================================
