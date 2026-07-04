@@ -89,7 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const n = document.getElementById('nome').value.trim();
         const t = document.getElementById('telefone').value.trim();
         const q = document.getElementById('quantidade').value;
-                const m = document.getElementById('mensagem').value.trim();
+        const r = document.getElementById('restricao').value.trim();
+        const m = document.getElementById('mensagem').value.trim();
         if(!n){ alert('Por favor, digite seu nome ❤'); return; }
 
         const msg = encodeURIComponent(
@@ -98,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 👤 Nome: ${n}
 📱 Telefone: ${t || '—'}
 👥 Pessoas: ${q}
+🍽 Restrição: ${r || 'Nenhuma'}
 💌 Mensagem:
 ${m || '—'}
 
@@ -110,7 +112,14 @@ Com carinho, até lá! ❤`
     // ======================================
     // MÚSICA
     // ======================================
-
+    const mus = document.getElementById('musica');
+    const btnM = document.getElementById('btnMusica');
+    let tocando = false;
+    btnM.addEventListener('click', () => {
+        if(tocando){ mus.pause(); btnM.innerHTML='<i class="fas fa-music"></i>'; }
+        else { mus.play().catch(()=>{}); btnM.innerHTML='<i class="fas fa-pause"></i>'; }
+        tocando = !tocando;
+    });
 
     // ======================================
     // PÉTALAS
