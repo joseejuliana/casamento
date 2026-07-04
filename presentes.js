@@ -1,69 +1,83 @@
-console.log("Presentes carregado!");
+antes disso você consegue lista de presente  esses presentes para eu ver como ficou aqui mas queria que mandesse o arquvio já para eu testar no site  vpou mandar o codigo e voce poe os presente compleot console.log("Presentes carregado!");
 
 const listaPresentes = [
     "Ventilador",
     "Tapete de entrada",
-    "Jogo de lençol cinza/branco",
-    "Travesseiro Queen",
-    "Cobertor cor neutra",
+    "Jogo de lençol casal",
+    "Travesseiros (par)",
+    "Cobertor casal",
     "Edredom casal",
+    "Jogo de toalhas de banho",
+    "Jogo de toalhas de rosto",
+
+    "Liquidificador de vidro",
     "Processador de alimentos",
-    "Jogo de toalhas banho",
-    "Jogo de toalhas rosto",
-    "Grill",
-    "Açúcar + adoçante",
-    "Mixer",
-    "Mini forno elétrico",
-    "Liquidificador vidro",
     "Mini processador",
+    "Mixer",
+    "Grill",
     "Sanduicheira",
     "Chaleira elétrica",
-    "Panela arroz elétrica",
+    "Panela de arroz elétrica",
+    "Mini forno elétrico",
+
+    "Air Fryer de dois andares",
+    "Air Fryer de dois andares",
+
+    "Micro-ondas Inox",
+    "Micro-ondas Inox",
+
     "Fogareiro",
     "Jogo de jantar completo",
-    "Xícaras chá/café",
-    "Xícaras vidro duplo",
+    "Jogo de xícaras de chá",
+    "Jogo de xícaras de café",
     "Jogo de copos",
-    "Jogo de facas bloco",
-    "Taças de vinho",
+    "Jogo de facas com bloco",
     "Taças de água",
-    "Travessas sobremesa",
-    "Petisqueiras vidro",
-    "Assadeira fundo removível",
+    "Travessas de sobremesa",
+    "Petisqueiras de vidro",
+    "Assadeira com fundo removível",
     "Jogo de travessas inox",
-    "Frigideira cerâmica",
-    "Jogo panelas antiaderente",
-    "Panela pressão",
-    "Garrafas térmicas",
-    "Saladeira vidro",
+    "Frigideira de cerâmica",
+    "Jogo de panelas antiaderente",
+    "Panela de pressão",
+    "Garrafa térmica",
+    "Saladeira de vidro",
     "Toalha de mesa",
-    "Porta-guardanapo",
-    "Escorredor louça inox",
-    "Tigelas vidro",
-    "Aspirador vassoura",
+    "Porta-guardanapos",
+    "Escorredor de louça inox",
+    "Tigelas de vidro",
+
+    "Aspirador de pó vertical",
+    "Aspirador portátil",
     "Mop giratório",
     "Ferro de passar",
     "Tábua de passar",
-    "Varal chão",
-    "Escada alumínio",
-    "Lavadora alta pressão",
+    "Varal de chão",
+    "Escada de alumínio",
+    "Lavadora de alta pressão",
     "Cesto de roupa",
-    "Utensílios silicone",
-    "Air Fryer",
-    "Micro-ondas",
+
+    "Utensílios de silicone",
+    "Jogo de potes plásticos",
+    "Jogo de potes de vidro",
+
+    "Cafeteira elétrica",
+    "Filtro de água elétrico",
+    "Purificador de água",
+
+    "Moedor de carne elétrico",
+    "Fatiadeira elétrica",
+
     "Espelho grande",
     "Lixeira inox",
-    "Secador",
+    "Secador de cabelo",
+    "Toalheiro térmico",
     "Organizador giratório",
-    "Jogo de potes plástico",
-    "Jogo de potes vidro",
-    "Cafeteira elétrica",
-    "Filtro de água",
+
     "Kit banheiro (lixeira + escova)",
-    "Kit decoração sala",
+    "Kit decoração para sala",
     "Kit cozinha básico"
 ];
-
 var limite = 40;
 
 function reservarPresente(nome) {
@@ -153,4 +167,4 @@ document.addEventListener("DOMContentLoaded", function(){
 
     }
 
-});
+}); 
