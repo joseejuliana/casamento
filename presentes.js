@@ -1,4 +1,8 @@
-console.log("presentes carregou");
+alert("presentes.js carregou");
+
+// ================================
+// LISTA DE PRESENTES
+// ================================
 
 const listaPresentes = [
     "Ventilador",
@@ -6,8 +10,10 @@ const listaPresentes = [
     "Jogo de lençol cinza/branco",
     "Travesseiro Queen",
     "Cobertor cor neutra",
+    "Edredom casal",
     "Processador de alimentos",
-    "Jogo de toalhas",
+    "Jogo de toalhas banho",
+    "Jogo de toalhas rosto",
     "Grill",
     "Açúcar + adoçante",
     "Mixer",
@@ -18,67 +24,67 @@ const listaPresentes = [
     "Chaleira elétrica",
     "Panela arroz elétrica",
     "Fogareiro",
-    "Jogo de jantar preto",
+    "Jogo de jantar completo",
     "Xícaras chá/café",
     "Xícaras vidro duplo",
     "Jogo de copos",
     "Jogo de facas bloco",
     "Taças de vinho",
+    "Taças de água",
     "Travessas sobremesa",
     "Petisqueiras vidro",
     "Assadeira fundo removível",
-    "Jogo de travessas",
+    "Jogo de travessas inox",
     "Frigideira cerâmica",
     "Jogo panelas antiaderente",
+    "Panela pressão",
     "Garrafas térmicas",
     "Saladeira vidro",
     "Toalha de mesa",
     "Porta-guardanapo",
     "Escorredor louça inox",
-    "Espremedor macarrão",
     "Tigelas vidro",
     "Aspirador vassoura",
     "Mop giratório",
     "Ferro de passar",
-    "Tábua passar",
+    "Tábua de passar",
     "Varal chão",
     "Escada alumínio",
-    "Apanhador fraldas",
-    "Peneira barro",
     "Lavadora alta pressão",
-    "Copos cerveja",
-    "Copos whisky",
-    "Copos shot",
-    "Copos balão",
-    "Cesto roupa",
+    "Cesto de roupa",
     "Utensílios silicone",
-    "Carrinho geladeira",
-    "Passadeira + tapete",
-    "Forno elétrico",
-    "Panela grill",
     "Air Fryer",
     "Micro-ondas",
     "Espelho grande",
-    "Lixeiras brancas",
-    "Aquecedor",
-    "Panela pressão",
-    "Purificador água",
     "Lixeira inox",
     "Secador",
-    "Organizador giratório"
+    "Organizador giratório",
+    "Jogo de potes plástico",
+    "Jogo de potes vidro",
+    "Cafeteira elétrica",
+    "Filtro de água",
+    "Kit banheiro (lixeira + escova)",
+    "Kit decoração sala",
+    "Kit cozinha básico"
 ];
 
-let indexAtual = 0;
-const porPagina = 10;
+// ================================
+// CONFIG
+// ================================
+
+let limite = 40;
+
+// ================================
+// CARREGAR PRESENTES
+// ================================
 
 function carregarPresentes() {
     const container = document.getElementById("gradePresentes");
     if (!container) return;
 
-    const fim = indexAtual + porPagina;
-    const itens = listaPresentes.slice(indexAtual, fim);
+    container.innerHTML = "";
 
-    itens.forEach((item) => {
+    listaPresentes.slice(0, limite).forEach((item) => {
         const card = document.createElement("div");
         card.className = "card-presente";
 
@@ -92,16 +98,20 @@ function carregarPresentes() {
         container.appendChild(card);
     });
 
-    indexAtual = fim;
-
+    // esconder botão se acabou lista
     const btn = document.getElementById("btnCarregarMais");
-    if (indexAtual >= listaPresentes.length && btn) {
-        btn.style.display = "none";
+    if (btn) {
+        btn.style.display = limite >= listaPresentes.length ? "none" : "block";
     }
 }
 
+// ================================
+// RESERVAR PRESENTE
+// ================================
+
 function reservarPresente(nome) {
     const telefone = "5511949626996";
+
     const mensagem = encodeURIComponent(
         `Olá! Gostaria de reservar o presente: ${nome} 💛`
     );
@@ -109,6 +119,20 @@ function reservarPresente(nome) {
     window.open(`https://wa.me/${telefone}?text=${mensagem}`, "_blank");
 }
 
+// ================================
+// INICIALIZAÇÃO SEGURA
+// ================================
+
 document.addEventListener("DOMContentLoaded", () => {
+
     carregarPresentes();
+
+    const btn = document.getElementById("btnCarregarMais");
+
+    if (btn) {
+        btn.addEventListener("click", () => {
+            limite += 10;
+            carregarPresentes();
+        });
+    }
 });
