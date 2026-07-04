@@ -1,7 +1,4 @@
-console.log("JS carregou com sucesso!");
-// ================================
-// LISTA DE PRESENTES
-// ================================
+console.log("Presentes carregado!");
 
 const listaPresentes = [
     "Ventilador",
@@ -67,71 +64,93 @@ const listaPresentes = [
     "Kit cozinha básico"
 ];
 
-// ================================
-// CONFIG
-// ================================
+var limite = 40;
 
-let limite = 40;
+function reservarPresente(nome) {
 
-// ================================
-// CARREGAR PRESENTES
-// ================================
+    var telefone = "5511949626996";
+
+    var mensagem = encodeURIComponent(
+        "Olá! Gostaria de reservar o presente: " + nome + " 💛"
+    );
+
+    window.open(
+        "https://wa.me/" + telefone + "?text=" + mensagem,
+        "_blank"
+    );
+}
 
 function carregarPresentes() {
-    const container = document.getElementById("gradePresentes");
+
+    var container = document.getElementById("gradePresentes");
+
     if (!container) return;
 
     container.innerHTML = "";
 
-    listaPresentes.slice(0, limite).forEach((item) => {
-        const card = document.createElement("div");
+    for (var i = 0; i < limite && i < listaPresentes.length; i++) {
+
+        var card = document.createElement("div");
         card.className = "card-presente";
 
-        card.innerHTML = `
-            <h3>${item}</h3>
-            <button class="botao-capa" onclick="reservarPresente('${item}')">
-                Reservar pelo WhatsApp
-            </button>
-        `;
+        var titulo = document.createElement("h3");
+        titulo.textContent = listaPresentes[i];
+
+        var botao = document.createElement("button");
+        botao.className = "botao-capa";
+        botao.textContent = "Reservar pelo WhatsApp";
+
+        (function(nome){
+
+            botao.addEventListener("click", function(){
+
+                reservarPresente(nome);
+
+            });
+
+        })(listaPresentes[i]);
+
+        card.appendChild(titulo);
+        card.appendChild(botao);
 
         container.appendChild(card);
-    });
 
-    // esconder botão se acabou lista
-    const btn = document.getElementById("btnCarregarMais");
-    if (btn) {
-        btn.style.display = limite >= listaPresentes.length ? "none" : "block";
     }
+
+    var btn = document.getElementById("btnCarregarMais");
+
+    if (btn) {
+
+        if (limite >= listaPresentes.length) {
+
+            btn.style.display = "none";
+
+        } else {
+
+            btn.style.display = "inline-block";
+
+        }
+
+    }
+
 }
 
-// ================================
-// RESERVAR PRESENTE
-// ================================
-
-function reservarPresente(nome) {
-    const telefone = "5511949626996";
-
-    const mensagem = encodeURIComponent(
-        `Olá! Gostaria de reservar o presente: ${nome} 💛`
-    );
-
-    window.open(`https://wa.me/${telefone}?text=${mensagem}`, "_blank");
-}
-
-// ================================
-// INICIALIZAÇÃO SEGURA
-// ================================
-
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function(){
 
     carregarPresentes();
 
-    const btn = document.getElementById("btnCarregarMais");
+    var btn = document.getElementById("btnCarregarMais");
 
-    if (btn) {
-        btn.addEventListener("click", () => {
+    if(btn){
+
+        btn.addEventListener("click", function(){
+
             limite += 10;
+
             carregarPresentes();
+
         });
+
     }
+
 });
