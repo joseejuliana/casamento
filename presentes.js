@@ -48,12 +48,7 @@ const listaPresentes = [
     "Escada alumínio",
     "Apanhador fraldas",
     "Peneira barro",
-    "Lavadora alta pressão",
-    "Copos cerveja",
-    "Copos whisky",
-    "Copos shot",
-    "Copos balão",
-    "Cesto roupa"
+    "Lavadora alta pressão"
 ];
 
 // ================================
