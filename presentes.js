@@ -1,3 +1,4 @@
+console.log("JS carregou com sucesso!");
 // ================================
 // LISTA DE PRESENTES
 // ================================
