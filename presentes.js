@@ -38,7 +38,12 @@ const listaPresentes = [
     "Toalha de mesa",
     "Porta-guardanapo",
     "Escorredor louça inox",
-    "Espremedor macarrão"
+    "Espremedor macarrão",
+    "Tigelas vidro",
+    "Aspirador vassoura",
+    "Mop giratório",
+    "Ferro de passar",
+    "Tábua passar"
 ];
 
 // ================================
