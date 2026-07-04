@@ -1,5 +1,3 @@
-alert("presentes.js carregou");
-
 // ================================
 // LISTA DE PRESENTES
 // ================================
