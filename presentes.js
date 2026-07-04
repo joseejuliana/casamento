@@ -31,15 +31,7 @@ const listaPresentes = [
     {id:59,nome:"Lixeiras brancas",d:true},{id:60,nome:"Aquecedor",d:true},
     {id:61,nome:"Panela pressão",d:true},{id:62,nome:"Purificador água",d:true},
     {id:63,nome:"Lixeira inox",d:true},{id:64,nome:"Secador",d:true},
-    {id:65,nome:"Organizador giratório",d:true},{id:66,nome:"Whisky 12 anos",d:true},
-    {id:67,nome:"Ciroc",d:true},{id:68,nome:"Absolut",d:true},
-    {id:69,nome:"Grey Goose",d:true},{id:70,nome:"Beefeater",d:true},
-    {id:71,nome:"Amarula",d:true},{id:72,nome:"Vinhos",d:true},
-    {id:73,nome:"Licor",d:true},{id:74,nome:"Salinas",d:true},
-    {id:75,nome:"51 Ouro",d:true},{id:76,nome:"Gin Tanqueray",d:true},
-    {id:77,nome:"Gin Bulldog",d:true},{id:78,nome:"Conhaque",d:true},
-    {id:79,nome:"Ritu Gold",d:true},{id:80,nome:"Cachaça Extra",d:true}
-];
+    {id:65,nome:"Organizador giratório",d:true},];
 
 function carregar() {
     const g = document.getElementById('gradePresentes');
@@ -91,5 +83,5 @@ window.reservar = function(id) {
 
 // 🔥 ISSO AQUI GARANTE FUNCIONAMENTO NO GITHUB
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(carregar, 300);
+    carregar(); requestAnimationFrame(carregar); setTimeout(carregar,300);
 });

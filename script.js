@@ -89,8 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const n = document.getElementById('nome').value.trim();
         const t = document.getElementById('telefone').value.trim();
         const q = document.getElementById('quantidade').value;
-        const r = document.getElementById('restricao').value.trim();
-        const m = document.getElementById('mensagem').value.trim();
+                const m = document.getElementById('mensagem').value.trim();
         if(!n){ alert('Por favor, digite seu nome ❤'); return; }
 
         const msg = encodeURIComponent(
@@ -99,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
 👤 Nome: ${n}
 📱 Telefone: ${t || '—'}
 👥 Pessoas: ${q}
-🍽 Restrição: ${r || 'Nenhuma'}
 💌 Mensagem:
 ${m || '—'}
 
